@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @dates = Date.today
-    @week = get_week_parameter
+    @week = week_parameter
     @weather = Weather.today
   end
 

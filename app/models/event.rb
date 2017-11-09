@@ -17,4 +17,8 @@ class Event < ApplicationRecord
       end
     end.any?
   end
+
+  def self.starting_on_date(day)
+    Event.where("DATE(starts_at) = ?", day.to_date)
+  end
 end

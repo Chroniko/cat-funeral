@@ -13,7 +13,7 @@
     <tr>
       <% get_dates.each do |day| %>
         <td>
-          <% find_events(day).map do |e| %>
+          <% Event.starting_on_date(day).map do |e| %>
             <%= e.starts_at.strftime('%H:%M') %> - <%= (e.starts_at + 2.hours).strftime('%H:%M') %>
             <br/>
           <% end %>

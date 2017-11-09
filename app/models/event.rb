@@ -19,6 +19,6 @@ class Event < ApplicationRecord
   end
 
   def self.starting_on_date(day)
-    Event.where("DATE(starts_at) = ?", day.to_date)
+    Event.where("DATE(starts_at) = ?", day.to_date).order('starts_at')
   end
 end

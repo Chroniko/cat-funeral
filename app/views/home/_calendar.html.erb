@@ -1,0 +1,24 @@
+<div class="table-nav row">
+  <div class="nav-prev col-md-4"><%= link_to "Previous week", root_path(week: (@week-1)) %></div>
+  <div class="nav-back col-md-4"><%= link_to "Current week", root_path %></div>
+  <div class="nav-next col-md-4"><%= link_to "Next week", root_path(week: (@week+1)) %></div>
+</div>
+<div>
+  <table>
+    <tr>
+      <% get_dates.each do |day| %>
+        <th><%= day.strftime('%a') %><br/><%= day.strftime('%m/%d') %></th>
+      <% end %>
+    </tr>
+    <tr>
+      <% get_dates.each do |day| %>
+        <td>
+          <% find_events(day).map do |e| %>
+            <%= e.starts_at.strftime('%H:%M') %> - <%= (e.starts_at + 2.hours).strftime('%H:%M') %>
+            <br/>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+</div>

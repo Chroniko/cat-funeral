@@ -1,0 +1,18 @@
+<div class="event-form">
+  <%= form_for @event do |f| %>
+    <%= f.datetime_field :starts_at %>
+    <%= f.submit %>
+    <% if @event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@event.errors.count, "error") %> prohibited this article from being saved:</h2>
+     
+        <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

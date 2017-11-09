@@ -1,0 +1,11 @@
+<div><h3>Currently planned events:</h3></div>
+<%= render 'calendar' %>
+<div>
+  <h4><%= link_to "Make a reservation", new_event_path %></h4>
+</div>
+Current weather in Ljubljana:
+<% if @weather.temperature.nil? %>
+  data not available
+<% else %>
+  <%= image_tag(@weather.icon, alt: "icon") %> <%= @weather.condition %>, <%= @weather.temperature %> °C
+<% end %>

@@ -277,4 +277,6 @@ Devise.setup do |config|
   
   config.scoped_views = true
 
+  config.secret_key = Rails.application.secrets.devise_key
+
 end

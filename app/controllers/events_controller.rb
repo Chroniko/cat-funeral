@@ -6,8 +6,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to root_path
     else
-      redirect_back(fallback_location: new_event_path)
-      #render :new
+      render "home/reservation"
     end
   end
 
